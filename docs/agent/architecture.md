@@ -38,15 +38,21 @@ refreshToken() / forceRefreshToken()
 isExpiryDateNear()
 ```
 
-| 提供商常量 | 协议 | 认证 |
-|-----------|------|------|
-| `gemini-cli-oauth` | Gemini/OpenAI | OAuth 2.0 |
-| `openai-custom` | OpenAI | API Key |
-| `claude-custom` | Claude | API Key |
-| `claude-kiro-oauth` | Claude/OpenAI | OAuth 2.0 |
-| `openai-codex-oauth` | Responses | OAuth 2.0 |
-| `grok-custom` | OpenAI | Cookie/SSO |
-| `local-model` | OpenAI | 无 |
+| 提供商常量 | 协议 | 认证 | 核心文件 |
+|-----------|------|------|---------|
+| `gemini-cli-oauth` | Gemini/OpenAI | OAuth 2.0 | `providers/gemini/gemini-core.js` |
+| `gemini-antigravity` | Gemini/OpenAI | Cookie/SSO | `providers/gemini/antigravity-core.js` |
+| `openai-custom` | OpenAI | API Key | `providers/openai/openai-core.js` |
+| `openaiResponses-custom` | OpenAI Responses | API Key | `providers/openai/openai-responses-core.js` |
+| `claude-custom` | Claude | API Key | `providers/claude/claude-core.js` |
+| `claude-kiro-oauth` | Claude/OpenAI | OAuth 2.0 | `providers/claude/claude-kiro.js` |
+| `openai-codex-oauth` | Responses | OAuth 2.0 | `providers/openai/codex-core.js` |
+| `openai-qwen-oauth` | OpenAI | OAuth 2.0 | `providers/openai/qwen-core.js` |
+| `openai-iflow` | OpenAI | OAuth 2.0 | `providers/openai/iflow-core.js` |
+| `grok-custom` | OpenAI | Cookie/SSO | `providers/grok/grok-core.js` |
+| `forward-api` | 透明转发 | API Key | `providers/forward/forward-core.js` |
+| `local-model` | OpenAI | 无 | `providers/local/local-core.js` |
+| `auto` | - | - | 自动选择最优提供商 |
 
 ## 提供商池管理器
 
@@ -73,16 +79,27 @@ isExpiryDateNear()
 
 `src/converters/strategies/` 中的双向转换：
 
-- `OpenAIConverter`：OpenAI → Claude 格式
-- `ClaudeConverter`：Claude → OpenAI 格式
-- `GeminiConverter`：Gemini → OpenAI 格式
-- `GrokConverter`：Grok → OpenAI 格式
+| 转换器 | 方向 |
+|--------|------|
+| `OpenAIConverter` | OpenAI → Claude 格式 |
+| `ClaudeConverter` | Claude → OpenAI 格式 |
+| `GeminiConverter` | Gemini → OpenAI 格式 |
+| `GrokConverter` | Grok → OpenAI 格式 |
+| `CodexConverter` | Codex Responses → OpenAI 格式 |
+| `OpenAIResponsesConverter` | OpenAI Responses → Claude 格式 |
+
+## Sidecar & Controller
+
+| 组件 | 技术栈 | 说明 |
+|------|--------|------|
+| `packages/go-sidecar/` | Go | TLS 指纹代理，规避 TLS 检测 |
+| `packages/python-controller/` | Python FastAPI | 本地 LLM 控制器（vLLM 等） |
 
 ## 设计模式
 
 | 模式 | 位置 |
 |------|------|
-| 策略模式 | 各提供商 `*-core.js`、转换器策略 |
+| 策略模式 | 各提供商 `*-core.js`、转换器策略、`*-strategy.js` |
 | 适配器模式 | `ApiServiceAdapter` 接口 |
 | 工厂模式 | `getServiceAdapter(config)` |
 | 单例模式 | `PluginManager`、服务实例缓存 |

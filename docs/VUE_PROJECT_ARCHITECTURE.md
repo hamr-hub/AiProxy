@@ -1,4 +1,4 @@
-# AIClient-2-API Vue 前端项目架构文档
+# AiProxy Vue 前端项目架构文档
 
 > 版本: 1.1.0 | 更新日期: 2026-04-17
 
@@ -6,7 +6,7 @@
 
 ## 一、项目概述
 
-AIClient-2-API 是一个 API 代理中间件，将多种 AI 提供商（Gemini、Claude、Grok、Codex、Kiro 等）的 API 统一转换为标准的 OpenAI 兼容接口。
+AiProxy 是一个 API 代理中间件，将多种 AI 提供商（Gemini、Claude、Grok、Codex、Kiro 等）的 API 统一转换为标准的 OpenAI 兼容接口。
 
 ### 前端技术栈
 - **框架**: Vue 3 (Composition API + `<script setup>`)

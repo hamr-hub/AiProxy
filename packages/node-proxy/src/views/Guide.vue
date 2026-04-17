@@ -7,7 +7,7 @@
         <div class="prose max-w-none">
           <h3 class="text-lg font-semibold text-slate-700 mb-4">简介</h3>
           <p class="text-slate-600 leading-relaxed">
-            AIClient2API 是一个强大的 API 代理中间件，能够将多种 AI 提供商的 API 统一转换为标准的 OpenAI 兼容接口。
+            AiProxy 是一个强大的 API 代理中间件，能够将多种 AI 提供商的 API 统一转换为标准的 OpenAI 兼容接口。
             支持多账号池管理、智能轮询、自动故障转移和健康检查机制。
           </p>
         </div>

@@ -3,7 +3,7 @@ services:
     # 方式一：使用 Docker Hub 预构建镜像（默认，推荐）
     # 使用方法: docker compose up -d
     image: justlikemaki/aiclient-2-api:latest
-    container_name: aiclient2api
+    container_name: aiproxy
     restart: unless-stopped
     ports:
       - "3000:3000"

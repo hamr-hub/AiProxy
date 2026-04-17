@@ -5,7 +5,7 @@
         <div class="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
           <i class="fas fa-robot text-emerald-500 text-3xl"></i>
         </div>
-        <h1 class="text-2xl font-bold text-slate-800">AIClient2API</h1>
+        <h1 class="text-2xl font-bold text-slate-800">AiProxy</h1>
         <p class="text-slate-500 mt-2">管理控制台</p>
       </div>
       

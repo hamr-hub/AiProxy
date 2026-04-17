@@ -10,7 +10,7 @@
     "provider": {
         "kiro": {
             "npm": "@ai-sdk/anthropic",
-            "name": "AIClient2API-kiro",
+            "name": "AiProxy-kiro",
             "options": {
                 "baseURL": "http://localhost:3000/claude-kiro-oauth/v1",
                 "apiKey": "123456"
@@ -26,7 +26,7 @@
         },
         "gemini-antigravity": {
             "npm": "@ai-sdk/google",
-            "name": "AIClient2API-antigravity",
+            "name": "AiProxy-antigravity",
             "options": {
                 "baseURL": "http://localhost:3000/gemini-antigravity/v1beta",
                 "apiKey": "123456"
@@ -45,7 +45,7 @@
         },
         "gemini-cli": {
             "npm": "@ai-sdk/google",
-            "name": "AIClient2API-geminicli",
+            "name": "AiProxy-geminicli",
             "options": {
                 "baseURL": "http://localhost:3000/v1beta",
                 "apiKey": "123456"

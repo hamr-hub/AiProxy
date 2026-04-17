@@ -2,22 +2,22 @@
 
 <img src="src/img/logo-mid.webp" alt="logo"  style="width: 128px; height: 128px;margin-bottom: 3px;">
 
-# AIClient-2-API 🚀
+# AiProxy 🚀
 
 **A powerful proxy that converts client-only AI model APIs (Gemini CLI, Antigravity, Codex, Grok, Kiro...) into unified OpenAI-compatible local interfaces.**
 
-<a href="https://trendshift.io/repositories/15832" target="_blank"><img src="https://trendshift.io/api/badge/repositories/15832" alt="justlovemaki%2FAIClient-2-API | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
+<a href="https://trendshift.io/repositories/15832" target="_blank"><img src="https://trendshift.io/api/badge/repositories/15832" alt="justlovemaki%2FAiProxy | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
 </div>
 
 <div align="center">
 
-<a href="https://deepwiki.com/justlikemaki/AIClient-2-API"><img src="https://deepwiki.com/badge.svg" alt="Ask DeepWiki"  style="width: 134px; height: 23px;margin-bottom: 3px;"></a>
+<a href="https://deepwiki.com/justlikemaki/AiProxy"><img src="https://deepwiki.com/badge.svg" alt="Ask DeepWiki"  style="width: 134px; height: 23px;margin-bottom: 3px;"></a>
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Node.js](https://img.shields.io/badge/Node.js-≥20.0.0-green.svg)](https://nodejs.org/)
 [![Docker](https://img.shields.io/badge/docker-≥20.0.0-blue.svg)](https://hub.docker.com/r/justlikemaki/aiclient-2-api)
-[![GitHub stars](https://img.shields.io/github/stars/justlovemaki/AIClient-2-API.svg?style=flat&label=Star)](https://github.com/justlovemaki/AIClient-2-API/stargazers)
-[![GitHub issues](https://img.shields.io/github/issues/justlovemaki/AIClient-2-API.svg)](https://github.com/justlovemaki/AIClient-2-API/issues)
+[![GitHub stars](https://img.shields.io/github/stars/justlovemaki/AiProxy.svg?style=flat&label=Star)](https://github.com/justlovemaki/AiProxy/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/justlovemaki/AiProxy.svg)](https://github.com/justlovemaki/AiProxy/issues)
 
 [**🔧 OpenClaw Configuration**](./docs/OPENCLAW_CONFIG_GUIDE.md) | [**👈 中文**](./README-ZH.md) | [English](./README.md) | [日本語](./README-JA.md) | [**📚 Full Documentation**](https://aiproxy.justlikemaki.vip/zh/)
 
@@ -28,12 +28,12 @@
 <table width="100%">
   <tr>
     <td width="25%" align="center" valign="middle">
-      <a href="https://www.packyapi.com/register?aff=AIClient2API">
+      <a href="https://www.packyapi.com/register?aff=AiProxy">
         <img src="static/packycode.png" alt="PackyCode Sponsor" width="180">
       </a>
     </td>
     <td width="75%" align="left" valign="middle">
-      PackyCode is a reliable API proxy service providing Claude Code, Codex, Gemini and more. Use code <strong>AIClient2API</strong> for <strong>10% discount</strong>. <a href="https://www.packyapi.com/register?aff=AIClient2API">Register here</a>
+      PackyCode is a reliable API proxy service providing Claude Code, Codex, Gemini and more. Use code <strong>AiProxy</strong> for <strong>10% discount</strong>. <a href="https://www.packyapi.com/register?aff=AiProxy">Register here</a>
     </td>
   </tr>
   <tr>
@@ -81,7 +81,7 @@
 
 ## 🚀 Project Overview
 
-`AIClient2API` is an API proxy service that breaks client-only limitations, converting free AI models like Gemini, Antigravity, Codex, Grok, and Kiro into standard OpenAI-compatible interfaces. Built on Node.js with intelligent protocol conversion between OpenAI, Claude, and Gemini, enabling tools like Cherry-Studio, NextChat, and Cline to freely use premium models like Claude Opus 4.5 and Gemini 3.0 Pro. The project uses modular architecture with strategy and adapter patterns, featuring account pool management, intelligent polling, automatic failover, and health checks ensuring 99.9% service availability.
+`AiProxy` is an API proxy service that breaks client-only limitations, converting free AI models like Gemini, Antigravity, Codex, Grok, and Kiro into standard OpenAI-compatible interfaces. Built on Node.js with intelligent protocol conversion between OpenAI, Claude, and Gemini, enabling tools like Cherry-Studio, NextChat, and Cline to freely use premium models like Claude Opus 4.5 and Gemini 3.0 Pro. The project uses modular architecture with strategy and adapter patterns, featuring account pool management, intelligent polling, automatic failover, and health checks ensuring 99.9% service availability.
 
 > [!NOTE]
 > **🎉 Milestones**
@@ -165,7 +165,7 @@
 
 ### 🚀 Quick Start
 
-Recommended way to start AIClient-2-API is via automated script with **Web UI Console** for visual configuration.
+Recommended way to start AiProxy is via automated script with **Web UI Console** for visual configuration.
 
 ---
 
@@ -181,7 +181,7 @@ docker run -d \
   -p 19876-19880:19876-19880 \
   --restart=always \
   -v "your-path:/app/configs" \
-  --name aiclient2api \
+  --name aiproxy \
   justlikemaki/aiclient-2-api
 ```
 
@@ -220,8 +220,8 @@ To build from source instead of using pre-built image:
 
 **1. Clone the project**
 ```bash
-git clone https://github.com/justlovemaki/AIClient-2-API.git
-cd AIClient-2-API
+git clone https://github.com/justlovemaki/AiProxy.git
+cd AiProxy
 ```
 
 **2. Install dependencies**
@@ -309,13 +309,13 @@ After starting, open browser:
 
 ### 🤝 App-Controller Integration
 
-`app-controller` is a Python FastAPI-based local LLM management service that works with AIClient-2-API.
+`app-controller` is a Python FastAPI-based local LLM management service that works with AiProxy.
 
 #### Architecture
 
 ```
 ┌──────────────────────────┐
-│   AIClient-2-API        │  ← Entry: Auth, UI, Protocol Proxy (Node.js)
+│   AiProxy        │  ← Entry: Auth, UI, Protocol Proxy (Node.js)
 └──────────┬──────────────┘
            │ OpenAI Protocol
            ▼
@@ -341,7 +341,7 @@ python main.py
 
 Service starts at `http://localhost:5000`
 
-**2. Configure Custom Provider in AIClient-2-API**
+**2. Configure Custom Provider in AiProxy**
 
 Login to Web UI:
 1. Go to **"Config Management"** → **"Provider Config"**
@@ -448,7 +448,7 @@ Seamlessly supports latest models:
 4. **Important**: Check official website for latest usage limits
 
 #### Kiro Extended Thinking (Claude Models)
-AIClient-2-API supports Kiro extended thinking when routing to `claude-kiro-oauth` via Claude-compatible (`/v1/messages`) or OpenAI-compatible (`/v1/chat/completions`) requests.
+AiProxy supports Kiro extended thinking when routing to `claude-kiro-oauth` via Claude-compatible (`/v1/messages`) or OpenAI-compatible (`/v1/chat/completions`) requests.
 
 **Claude-compatible (`/v1/messages`)**:
 ```bash
@@ -721,7 +721,7 @@ Or change port in `configs/config.json`.
 **Issue**: Container fails or exits immediately.
 
 **Solutions**:
-- **Check logs**: `docker logs aiclient2api`
+- **Check logs**: `docker logs aiproxy`
 - **Check mount path**: Ensure `-v` local path exists with read/write permissions
 - **Check port conflicts**: All mapped ports available
 - **Re-pull image**: `docker pull justlikemaki/aiclient-2-api:latest`
@@ -845,18 +845,18 @@ This project was greatly inspired by Google's official Gemini CLI and referenced
 
 ### Contributors
 
-[![Contributors](https://contrib.rocks/image?repo=justlovemaki/AIClient-2-API)](https://github.com/justlovemaki/AIClient-2-API/graphs/contributors)
+[![Contributors](https://contrib.rocks/image?repo=justlovemaki/AiProxy)](https://github.com/justlovemaki/AiProxy/graphs/contributors)
 
 ### 🌟 Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=justlovemaki/AIClient-2-API&type=Timeline)](https://star-history.com/#justlovemaki/AIClient-2-API&Timeline)
+[![Star History Chart](https://api.star-history.com/svg?repos=justlovemaki/AiProxy&type=Timeline)](https://star-history.com/#justlovemaki/AiProxy&Timeline)
 
 ---
 
 ## ⚠️ Disclaimer
 
 ### Usage Risk Notice
-This project (AIClient-2-API) is for learning and research only. Users assume all risks when using this project. The author is not responsible for any direct, indirect, or consequential damages from using this project.
+This project (AiProxy) is for learning and research only. Users assume all risks when using this project. The author is not responsible for any direct, indirect, or consequential damages from using this project.
 
 ### Third-Party Service Disclaimer
 This project is an API proxy tool and does not provide any AI model services. All AI model services are provided by third-party providers (Google, OpenAI, Anthropic, etc.). Users must comply with third-party terms and policies when accessing these services. The author is not responsible for third-party service availability, quality, security, or legality.

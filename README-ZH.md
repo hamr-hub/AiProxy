@@ -2,22 +2,22 @@
 
 <img src="src/img/logo-mid.webp" alt="logo"  style="width: 128px; height: 128px;margin-bottom: 3px;">
 
-# AIClient-2-API 🚀
+# AiProxy 🚀
 
 **一个能将多种仅客户端内使用的大模型 API（Gemini CLI, Antigravity, Codex, Grok, Kiro ...），模拟请求，统一封装为本地 OpenAI 兼容接口的强大代理。**
 
-<a href="https://trendshift.io/repositories/15832" target="_blank"><img src="https://trendshift.io/api/badge/repositories/15832" alt="justlovemaki%2FAIClient-2-API | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
+<a href="https://trendshift.io/repositories/15832" target="_blank"><img src="https://trendshift.io/api/badge/repositories/15832" alt="justlovemaki%2FAiProxy | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
 </div>
 
 <div align="center">
 
-<a href="https://deepwiki.com/justlikemaki/AIClient-2-API"><img src="https://deepwiki.com/badge.svg" alt="Ask DeepWiki"  style="width: 134px; height: 23px;margin-bottom: 3px;"></a>
+<a href="https://deepwiki.com/justlikemaki/AiProxy"><img src="https://deepwiki.com/badge.svg" alt="Ask DeepWiki"  style="width: 134px; height: 23px;margin-bottom: 3px;"></a>
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Node.js](https://img.shields.io/badge/Node.js-≥20.0.0-green.svg)](https://nodejs.org/)
 [![Docker](https://img.shields.io/badge/docker-≥20.0.0-blue.svg)](https://hub.docker.com/r/justlikemaki/aiclient-2-api)
-[![GitHub stars](https://img.shields.io/github/stars/justlovemaki/AIClient-2-API.svg?style=flat&label=Star)](https://github.com/justlovemaki/AIClient-2-API/stargazers)
-[![GitHub issues](https://img.shields.io/github/issues/justlovemaki/AIClient-2-API.svg)](https://github.com/justlovemaki/AIClient-2-API/issues)
+[![GitHub stars](https://img.shields.io/github/stars/justlovemaki/AiProxy.svg?style=flat&label=Star)](https://github.com/justlovemaki/AiProxy/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/justlovemaki/AiProxy.svg)](https://github.com/justlovemaki/AiProxy/issues)
 
 [**🔧 OpenClaw 配置**](./docs/OPENCLAW_CONFIG_GUIDE-ZH.md) | [**👉 中文**](./README-ZH.md) | [English](./README.md) | [日本語](./README-JA.md) | [**📚 完整文档**](https://aiproxy.justlikemaki.vip/zh/)
 
@@ -28,12 +28,12 @@
 <table width="100%">
   <tr>
     <td width="25%" align="center" valign="middle">
-      <a href="https://www.packyapi.com/register?aff=AIClient2API">
+      <a href="https://www.packyapi.com/register?aff=AiProxy">
         <img src="static/packycode.png" alt="PackyCode Sponsor" width="180">
       </a>
     </td>
     <td width="75%" align="left" valign="middle">
-      PackyCode 是一家可靠且高效的 API 中转服务商，提供 Claude Code、Codex、Gemini 等模型的中转服务。PackyCode 为本软件用户提供特别优惠：<a href="https://www.packyapi.com/register?aff=AIClient2API">通过此链接注册</a>并在充值时输入 <strong>AIClient2API</strong> 优惠码，即可享受 <strong>10% 的折扣</strong>。
+      PackyCode 是一家可靠且高效的 API 中转服务商，提供 Claude Code、Codex、Gemini 等模型的中转服务。PackyCode 为本软件用户提供特别优惠：<a href="https://www.packyapi.com/register?aff=AiProxy">通过此链接注册</a>并在充值时输入 <strong>AiProxy</strong> 优惠码，即可享受 <strong>10% 的折扣</strong>。
     </td>
   </tr>
   <tr>
@@ -43,7 +43,7 @@
       </a>
     </td>
     <td width="75%" align="left" valign="middle">
-      感谢 AICodeMirror 赞助本项目！AICodeMirror 为 Claude Code / Codex / Gemini CLI 提供官方高稳定性中转服务，具备企业级并发能力、快速开票和 7/24 专属技术支持。Claude Code / Codex / Gemini 官方渠道价格仅为原价的 38% / 2% / 9%，充值还有额外优惠！AICodeMirror 为 AIClient-2-API 用户提供专属福利：<a href="https://www.aicodemirror.com/register?invitecode=5BUE62">通过此链接注册</a>即可享受首充 <strong>8折（20% off）</strong> 优惠，企业客户最高可享 75折（25% off）！
+      感谢 AICodeMirror 赞助本项目！AICodeMirror 为 Claude Code / Codex / Gemini CLI 提供官方高稳定性中转服务，具备企业级并发能力、快速开票和 7/24 专属技术支持。Claude Code / Codex / Gemini 官方渠道价格仅为原价的 38% / 2% / 9%，充值还有额外优惠！AICodeMirror 为 AiProxy 用户提供专属福利：<a href="https://www.aicodemirror.com/register?invitecode=5BUE62">通过此链接注册</a>即可享受首充 <strong>8折（20% off）</strong> 优惠，企业客户最高可享 75折（25% off）！
     </td>
   </tr>
   <tr>
@@ -63,7 +63,7 @@
       </a>
     </td>
     <td width="75%" align="left" valign="middle">
-      Poixe AI 提供可靠的 AI 模型接口服务，您可以使用平台提供的 LLM API 接口轻松构建 AI 产品，同时也可以成为供应商，为平台提供大模型资源以赚取收益。<a href="https://poixe.com/i/ebmvga">通过 AIClient-2-API 专属链接注册</a>，充值额外赠送 <strong>$5 美金</strong>。
+      Poixe AI 提供可靠的 AI 模型接口服务，您可以使用平台提供的 LLM API 接口轻松构建 AI 产品，同时也可以成为供应商，为平台提供大模型资源以赚取收益。<a href="https://poixe.com/i/ebmvga">通过 AiProxy 专属链接注册</a>，充值额外赠送 <strong>$5 美金</strong>。
     </td>
   </tr>
   <tr>
@@ -81,7 +81,7 @@
 
 ## 🚀 项目概览
 
-`AIClient2API` 是一个突破客户端限制的 API 代理服务，将 Gemini、Antigravity、Codex, Grok、Kiro 等原本仅限客户端内使用的免费大模型，转换为可供任何应用调用的标准 OpenAI 兼容接口。基于 Node.js 构建，支持 OpenAI、Claude、Gemini 三大协议的智能互转，让 Cherry-Studio、NextChat、Cline 等工具能够免费大量使用 Claude Opus 4.5、Gemini 3.0 Pro 等高级模型。项目采用策略模式和适配器模式的模块化架构，内置账号池管理、智能轮询、自动故障转移和健康检查机制，确保 99.9% 的服务可用性。
+`AiProxy` 是一个突破客户端限制的 API 代理服务，将 Gemini、Antigravity、Codex, Grok、Kiro 等原本仅限客户端内使用的免费大模型，转换为可供任何应用调用的标准 OpenAI 兼容接口。基于 Node.js 构建，支持 OpenAI、Claude、Gemini 三大协议的智能互转，让 Cherry-Studio、NextChat、Cline 等工具能够免费大量使用 Claude Opus 4.5、Gemini 3.0 Pro 等高级模型。项目采用策略模式和适配器模式的模块化架构，内置账号池管理、智能轮询、自动故障转移和健康检查机制，确保 99.9% 的服务可用性。
 
 > [!NOTE]
 > **🎉 重要里程碑**
@@ -165,7 +165,7 @@
 
 ### 🚀 快速启动
 
-使用 AIClient-2-API 最推荐的方式是通过自动化脚本启动，并直接在 **Web UI 控制台** 进行可视化配置。
+使用 AiProxy 最推荐的方式是通过自动化脚本启动，并直接在 **Web UI 控制台** 进行可视化配置。
 
 ---
 
@@ -181,7 +181,7 @@ docker run -d \
   -p 19876-19880:19876-19880 \
   --restart=always \
   -v "指定路径:/app/configs" \
-  --name aiclient2api \
+  --name aiproxy \
   justlikemaki/aiclient-2-api
 ```
 
@@ -193,7 +193,7 @@ docker run -d \
 - `-p 19876-19880:19876-19880`：Kiro OAuth 回调端口范围
 - `--restart=always`：容器自动重启策略
 - `-v "指定路径:/app/configs"`：挂载配置目录（请将"指定路径"替换为实际路径，如 `/home/user/aiclient-configs`）
-- `--name aiclient2api`：容器名称
+- `--name aiproxy`：容器名称
 
 #### 方式二：Docker Compose 部署
 
@@ -214,7 +214,7 @@ docker compose up -d
 services:
   aiclient-api:
     image: justlikemaki/aiclient-2-api:latest
-    container_name: aiclient2api
+    container_name: aiproxy
     restart: unless-stopped
     ports:
       - "3000:3000"        # Web UI
@@ -247,8 +247,8 @@ services:
 
 **1. 克隆项目**
 ```bash
-git clone https://github.com/justlovemaki/AIClient-2-API.git
-cd AIClient-2-API
+git clone https://github.com/justlovemaki/AiProxy.git
+cd AiProxy
 ```
 
 **2. 安装依赖**
@@ -336,13 +336,13 @@ static/
 
 ### 🤝 与 app-controller 集成
 
-`app-controller` 是一个基于 Python FastAPI 的本地 LLM 模型管理服务，可与 AIClient-2-API 配合使用，实现本地模型的智能调度和资源管理。
+`app-controller` 是一个基于 Python FastAPI 的本地 LLM 模型管理服务，可与 AiProxy 配合使用，实现本地模型的智能调度和资源管理。
 
 #### 架构关系
 
 ```
 ┌──────────────────────────┐
-│   AIClient-2-API        │  ← 入口层：鉴权、UI、协议转发 (Node.js)
+│   AiProxy        │  ← 入口层：鉴权、UI、协议转发 (Node.js)
 └──────────┬──────────────┘
            │ OpenAI 协议
            ▼
@@ -368,7 +368,7 @@ python main.py
 
 服务将在 `http://localhost:5000` 启动
 
-**2. 在 AIClient-2-API 中配置自定义渠道**
+**2. 在 AiProxy 中配置自定义渠道**
 
 登录 Web UI 管理后台：
 1. 进入 **"配置管理"** → **"提供商配置"**
@@ -476,7 +476,7 @@ sudo systemctl start ai-controller
 4. **重要提示**：Kiro 服务使用政策已更新，请访问官方网站查看最新使用限制和条款
 
 #### Kiro 扩展思考 (Claude 模型)
-AIClient-2-API 在使用路由到 `claude-kiro-oauth` 的 Claude 兼容请求 (`/v1/messages`) 或 OpenAI 兼容请求 (`/v1/chat/completions`) 时支持 Kiro 扩展思考。
+AiProxy 在使用路由到 `claude-kiro-oauth` 的 Claude 兼容请求 (`/v1/messages`) 或 OpenAI 兼容请求 (`/v1/chat/completions`) 时支持 Kiro 扩展思考。
 
 **Claude 兼容接口 (`/v1/messages`)**:
 ```bash
@@ -754,7 +754,7 @@ kill -9 <PID>
 **问题描述**：Docker 容器启动失败或立即退出。
 
 **解决方案**：
-- **检查日志**：`docker logs aiclient2api` 查看错误信息
+- **检查日志**：`docker logs aiproxy` 查看错误信息
 - **检查挂载路径**：确保 `-v` 参数中的本地路径存在且有读写权限
 - **检查端口冲突**：确保所有映射的端口在宿主机上未被占用
 - **重新拉取镜像**：`docker pull justlikemaki/aiclient-2-api:latest`
@@ -878,22 +878,22 @@ kill -9 <PID>
 
 ### 贡献者列表
 
-感谢以下所有为 AIClient-2-API 项目做出贡献的开发者：
+感谢以下所有为 AiProxy 项目做出贡献的开发者：
 
-[![Contributors](https://contrib.rocks/image?repo=justlovemaki/AIClient-2-API)](https://github.com/justlovemaki/AIClient-2-API/graphs/contributors)
+[![Contributors](https://contrib.rocks/image?repo=justlovemaki/AiProxy)](https://github.com/justlovemaki/AiProxy/graphs/contributors)
 
 
 ### 🌟 Star History
 
 
-[![Star History Chart](https://api.star-history.com/svg?repos=justlovemaki/AIClient-2-API&type=Timeline)](https://www.star-history.com/#justlovemaki/AIClient-2-API&Timeline)
+[![Star History Chart](https://api.star-history.com/svg?repos=justlovemaki/AiProxy&type=Timeline)](https://www.star-history.com/#justlovemaki/AiProxy&Timeline)
 
 ---
 
 ## ⚠️ 免责声明
 
 ### 使用风险提示
-本项目（AIClient-2-API）仅供学习和研究使用。用户在使用本项目时，应自行承担所有风险。作者不对因使用本项目而导致的任何直接、间接或 consequential 损失承担责任。
+本项目（AiProxy）仅供学习和研究使用。用户在使用本项目时，应自行承担所有风险。作者不对因使用本项目而导致的任何直接、间接或 consequential 损失承担责任。
 
 ### 第三方服务责任说明
 本项目是一个API代理工具，不提供任何AI模型服务。所有AI模型服务由相应的第三方提供商（如Google、OpenAI、Anthropic等）提供。用户在使用本项目访问这些第三方服务时，应遵守各第三方服务的使用条款和政策。作者不对第三方服务的可用性、质量、安全性或合法性承担责任。

@@ -7,12 +7,12 @@
 ## 📋 项目意图
 
 ### 背景
-AIClient-2-API 是一个优秀的 API 代理服务，提供了完善的鉴权、用户管理和 UI 界面。但是它本身不包含大模型，也没有能力控制本地 GPU 资源。
+AiProxy 是一个优秀的 API 代理服务，提供了完善的鉴权、用户管理和 UI 界面。但是它本身不包含大模型，也没有能力控制本地 GPU 资源。
 
 ### 核心目标
 本项目旨在实现**"外壳解耦，内核驱动"**的架构方案：
 
-1. **保留 AIClient-2-API 作为入口/UI**：不修改原有代码，通过 Git 持续更新
+1. **保留 AiProxy 作为入口/UI**：不修改原有代码，通过 Git 持续更新
 2. **新增 Python 控制层作为核心大脑**：实现智能调度、资源监控和队列管理
 3. **无缝对接**：通过自定义渠道配置，原有用户分组、额度扣费、对话历史全部直接可用
 
@@ -27,7 +27,7 @@ AIClient-2-API 是一个优秀的 API 代理服务，提供了完善的鉴权、
 
 ```
 ┌──────────────────────────┐
-│   AIClient-2-API        │  ← 入口层：鉴权、UI、协议转发
+│   AiProxy        │  ← 入口层：鉴权、UI、协议转发
 │     (Node.js)           │
 └──────────┬──────────────┘
            │ OpenAI 协议
@@ -161,9 +161,9 @@ sudo systemctl start ai-controller
 sudo systemctl status ai-controller
 ```
 
-### 与 AIClient-2-API 集成
+### 与 AiProxy 集成
 
-1. 登录 AIClient-2-API 管理后台
+1. 登录 AiProxy 管理后台
 2. 添加新的自定义渠道（Custom Provider）
 3. 设置：
    - **类型**: Custom 或 OpenAI

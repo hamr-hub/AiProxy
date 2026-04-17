@@ -164,7 +164,7 @@
         <h3 class="text-lg font-semibold text-slate-700 mb-4">关于</h3>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div class="p-4 bg-slate-50 rounded-xl text-center">
-            <p class="text-2xl font-bold text-slate-800">AIClient-2-API</p>
+            <p class="text-2xl font-bold text-slate-800">AiProxy</p>
             <p class="text-sm text-slate-500 mt-1">版本 2.0.0</p>
           </div>
           <div class="p-4 bg-slate-50 rounded-xl text-center">

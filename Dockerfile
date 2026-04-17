@@ -21,8 +21,8 @@ RUN go mod tidy && CGO_ENABLED=0 GOOS=linux go build -ldflags="-s -w" -o tls-sid
 FROM node:20-alpine
 
 # 设置标签
-LABEL maintainer="AIClient2API Team"
-LABEL description="Docker image for AIClient2API server"
+LABEL maintainer="AiProxy Team"
+LABEL description="Docker image for AiProxy server"
 
 # 代理参数仅用于构建时，不持久化到最终镜像
 ARG HTTP_PROXY

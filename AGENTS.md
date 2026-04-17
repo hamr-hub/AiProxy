@@ -4,7 +4,7 @@ This file provides guidance to codeflicker when working with code in this reposi
 
 ## WHY: Purpose and Goals
 
-AIClient-2-API is an API proxy middleware that converts multiple AI providers (Gemini, Claude, Grok, Codex, Kiro, etc.) into unified OpenAI-compatible interfaces. It supports multi-account pool management, intelligent load balancing, automatic failover, and health checks.
+AiProxy is an API proxy middleware that converts multiple AI providers (Gemini, Claude, Grok, Codex, Kiro, etc.) into unified OpenAI-compatible interfaces. It supports multi-account pool management, intelligent load balancing, automatic failover, and health checks.
 
 ## WHAT: Technical Stack
 

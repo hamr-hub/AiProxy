@@ -11,7 +11,7 @@
         <div class="p-4 border-b border-slate-700 flex items-center justify-between">
           <div v-if="!isCollapsed" class="flex items-center gap-3">
             <i class="fas fa-robot text-xl text-emerald-400"></i>
-            <span class="font-bold text-lg">AIClient2API</span>
+            <span class="font-bold text-lg">AiProxy</span>
           </div>
           <div v-else class="flex items-center justify-center w-full">
             <i class="fas fa-robot text-xl text-emerald-400"></i>
@@ -101,7 +101,7 @@
             <i class="fas fa-sun text-slate-600"></i>
           </button>
           <a 
-            href="https://github.com/justlovemaki/AIClient-2-API" 
+            href="https://github.com/justlovemaki/AiProxy" 
             target="_blank"
             class="p-2 hover:bg-slate-100 rounded-lg transition-colors"
           >
@@ -172,7 +172,7 @@ const currentPageTitle = computed(() => {
     '/settings': '界面设置',
     '/logs': '实时日志'
   }
-  return pathMap[route.path] || 'AIClient2API'
+  return pathMap[route.path] || 'AiProxy'
 })
 
 const getBadgeClass = (badge) => {
