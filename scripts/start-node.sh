@@ -1,17 +1,15 @@
 #!/bin/bash
 
-DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-ROOT_DIR="$(dirname "$DIR")"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ROOT_DIR="$(dirname "$SCRIPT_DIR")"
+NODE_PROXY_DIR="$ROOT_DIR/packages/node-proxy"
 
-cd "$ROOT_DIR"
-
-NPM="/root/.nvm/versions/node/v24.15.0/bin/npm"
-NODE="/root/.nvm/versions/node/v24.15.0/bin/node"
+cd "$NODE_PROXY_DIR"
 
 if [ ! -d "node_modules" ]; then
-    echo "Installing dependencies..."
-    "$NPM" install
+    echo "Installing Node.js dependencies..."
+    npm install
 fi
 
-echo "Starting Node.js API service..."
-"$NODE" src/core/master.js
+echo "Starting Node.js API Gateway..."
+node src/main.js

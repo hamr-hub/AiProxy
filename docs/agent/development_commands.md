@@ -1,39 +1,26 @@
 # 开发命令
 
-## 环境说明
-
-- development（开发环境）
-- staging（预发布环境）
-- production（生产环境）
-
-## 开发
+## 启动服务
 
 ```bash
-# 启动开发服务器
+# 启动 Node.js API 网关（Worker 进程）
+cd packages/node-proxy && node src/main.js
+
+# 启动前端开发服务器（Vue 3）
 npm run dev
-
-# 监听文件变化自动重启
-npm run dev:watch
-```
-
-## 构建
-
-```bash
-# 生产构建
-npm run build
 
 # 预览构建结果
 npm run preview
 ```
 
-## 代码质量
+## 构建
 
 ```bash
-# ESLint 检查
-npm run lint
+# 构建前端静态资源
+npm run build
 
-# 自动修复
-npm run lint:fix
+# 构建 Go TLS Sidecar
+cd packages/go-sidecar && go build -o tls-sidecar
 ```
 
 ## 测试
@@ -42,23 +29,47 @@ npm run lint:fix
 # 运行所有测试
 npm test
 
-# 运行测试并监听
-npm run test:watch
+# 运行特定测试文件
+npx jest ./tests/api-integration.test.js
+
+# 运行特定测试用例
+npx jest ./tests/api-integration.test.js -t "OpenAI Compatible Endpoints"
 ```
 
-## 常见问题
-
-### 端口占用
-
-修改 `configs/config.json` 中的 `SERVER_PORT` 配置，或设置环境变量：
+## 环境变量覆盖
 
 ```bash
-SERVER_PORT=3001 npm run dev
+# 覆盖端口
+SERVER_PORT=3001 node src/main.js
+
+# 标识 Worker 进程（由 Master 自动设置，无需手动）
+IS_WORKER_PROCESS=true node src/main.js
 ```
 
-### 数据库连接失败
+## 系统服务管理（生产环境）
 
-检查 `configs/config.json` 中的数据库配置。
+```bash
+sudo systemctl restart aiclient-node
+sudo systemctl restart aiclient-python
+sudo systemctl status aiclient-node
+journalctl -u aiclient-node -f
+```
+
+## 端口说明
+
+| 端口 | 用途 |
+|------|------|
+| 3000 | Worker API 服务（默认） |
+| 3100 | Master 管理端点（/master/status, /master/restart 等） |
+
+## 配置文件路径
+
+| 文件 | 用途 |
+|------|------|
+| `configs/config.json` | 主配置（端口、API Key、提供商等） |
+| `configs/plugins.json` | 插件启用/禁用 |
+| `configs/provider_pools.json` | 提供商池定义 |
+| `configs/pwd` | Web UI 密码 |
 
 ---
 

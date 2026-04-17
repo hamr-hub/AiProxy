@@ -1,13 +1,13 @@
 #!/bin/bash
 
-DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-ROOT_DIR="$(dirname "$DIR")"
-CONTROLLER_DIR="$ROOT_DIR/app-controller"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ROOT_DIR="$(dirname "$SCRIPT_DIR")"
+PYTHON_DIR="$ROOT_DIR/packages/python-controller"
 
-cd "$CONTROLLER_DIR"
+cd "$PYTHON_DIR"
 
-if ! command -v pip3 &> /dev/null; then
-    echo "pip3 not found, please install Python 3 and pip"
+if ! command -v python3 &> /dev/null; then
+    echo "python3 not found, please install Python 3"
     exit 1
 fi
 
@@ -19,8 +19,10 @@ fi
 echo "Activating virtual environment..."
 source venv/bin/activate
 
-echo "Installing dependencies..."
-pip install -q fastapi uvicorn httpx pydantic python-dotenv pynvml prometheus-client websockets
+if [ ! -f "venv/bin/activate" ]; then
+    echo "Installing dependencies..."
+    pip install -q fastapi uvicorn httpx pydantic pynvml prometheus-client websockets redis
+fi
 
-echo "Starting Python app-controller service..."
+echo "Starting Python Controller service..."
 uvicorn main:app --host 0.0.0.0 --port 5000
