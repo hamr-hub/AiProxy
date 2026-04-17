@@ -65,8 +65,28 @@ const routes = [
         path: 'logs',
         name: 'Logs',
         component: () => import('@/views/Logs.vue')
+      },
+      {
+        path: 'model-usage-stats',
+        name: 'ModelUsageStats',
+        component: () => import('@/views/ModelUsageStats.vue')
+      },
+      {
+        path: 'potluck',
+        name: 'Potluck',
+        component: () => import('@/views/Potluck.vue')
+      },
+      {
+        path: 'test-api',
+        name: 'TestApi',
+        component: () => import('@/views/TestApi.vue')
       }
     ]
+  },
+  {
+    path: '/potluck-user',
+    name: 'PotluckUser',
+    component: () => import('@/views/PotluckUser.vue')
   },
   {
     path: '/login',

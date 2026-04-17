@@ -97,8 +97,11 @@
             <span class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
             <span class="text-sm text-emerald-700">在线</span>
           </div>
-          <button class="p-2 hover:bg-slate-100 rounded-lg transition-colors">
-            <i class="fas fa-sun text-slate-600"></i>
+          <button 
+            @click="toggleTheme"
+            class="p-2 hover:bg-slate-100 rounded-lg transition-colors"
+          >
+            <i :class="['fas', theme === 'dark' ? 'fa-sun' : 'fa-moon', 'text-slate-600']"></i>
           </button>
           <a 
             href="https://github.com/justlovemaki/AiProxy" 
@@ -120,12 +123,18 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
+import { useTheme } from '@/composables/useTheme'
 
 const route = useRoute()
+const { theme, toggleTheme, initTheme } = useTheme()
 const isCollapsed = ref(false)
 const isMobileMenuOpen = ref(false)
+
+onMounted(() => {
+  initTheme()
+})
 
 const menuGroups = [
   {
@@ -133,6 +142,7 @@ const menuGroups = [
     items: [
       { path: '/', label: '仪表盘', icon: 'fa-tachometer-alt' },
       { path: '/usage', label: '用量查询', icon: 'fa-chart-bar' },
+      { path: '/model-usage-stats', label: '模型统计', icon: 'fa-chart-pie' },
       { path: '/logs', label: '实时日志', icon: 'fa-file-alt' }
     ]
   },
@@ -142,6 +152,7 @@ const menuGroups = [
       { path: '/config', label: '系统配置', icon: 'fa-cog' },
       { path: '/providers', label: '提供商池', icon: 'fa-network-wired', badge: '5' },
       { path: '/custom-models', label: '自定义模型', icon: 'fa-cubes' },
+      { path: '/potluck', label: 'API 大锅饭', icon: 'fa-bowl-food' },
       { path: '/proxy', label: '代理配置', icon: 'fa-shield-halved' },
       { path: '/upload-config', label: '凭据文件', icon: 'fa-upload' }
     ]
@@ -150,6 +161,7 @@ const menuGroups = [
     name: '扩展',
     items: [
       { path: '/plugins', label: '插件管理', icon: 'fa-puzzle-piece', badge: '3' },
+      { path: '/test-api', label: 'API 测试', icon: 'fa-vial' },
       { path: '/settings', label: '界面设置', icon: 'fa-sliders' },
       { path: '/guide', label: '使用指南', icon: 'fa-book' },
       { path: '/tutorial', label: '配置教程', icon: 'fa-graduation-cap' }
@@ -170,7 +182,10 @@ const currentPageTitle = computed(() => {
     '/usage': '用量查询',
     '/plugins': '插件管理',
     '/settings': '界面设置',
-    '/logs': '实时日志'
+    '/logs': '实时日志',
+    '/model-usage-stats': '模型用量统计',
+    '/potluck': 'API 大锅饭管理',
+    '/test-api': 'API 测试控制台'
   }
   return pathMap[route.path] || 'AiProxy'
 })

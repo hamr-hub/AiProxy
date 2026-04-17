@@ -547,6 +547,249 @@ export function useNodes() {
   }
 }
 
+export function useModelUsageStats() {
+  const stats = ref(null)
+  const loading = ref(false)
+  const error = ref(null)
+
+  const fetchStats = async () => {
+    loading.value = true
+    error.value = null
+    try {
+      const data = await request('/model-usage-stats')
+      stats.value = data.data || data
+      return stats.value
+    } catch (err) {
+      error.value = err.message
+      console.error('Failed to fetch model usage stats:', err)
+      return null
+    } finally {
+      loading.value = false
+    }
+  }
+
+  const resetStats = async () => {
+    try {
+      const data = await request('/model-usage-stats/reset', { method: 'POST' })
+      stats.value = data.data || data
+      return data
+    } catch (err) {
+      error.value = err.message
+      throw err
+    }
+  }
+
+  const resetTokens = async () => {
+    try {
+      const data = await request('/model-usage-stats/reset-tokens', { method: 'POST' })
+      stats.value = data.data || data
+      return data
+    } catch (err) {
+      error.value = err.message
+      throw err
+    }
+  }
+
+  return {
+    stats,
+    loading,
+    error,
+    fetchStats,
+    resetStats,
+    resetTokens
+  }
+}
+
+export function usePotluck() {
+  const keys = ref([])
+  const stats = ref(null)
+  const loading = ref(false)
+  const error = ref(null)
+
+  const fetchKeys = async () => {
+    loading.value = true
+    error.value = null
+    try {
+      const result = await request('/potluck/keys')
+      if (result && result.success) {
+        keys.value = result.data.keys
+        stats.value = result.data.stats
+      }
+      return result
+    } catch (err) {
+      error.value = err.message
+      console.error('Failed to fetch potluck keys:', err)
+      return null
+    } finally {
+      loading.value = false
+    }
+  }
+
+  const createKey = async (name, dailyLimit) => {
+    try {
+      const result = await request('/potluck/keys', {
+        method: 'POST',
+        body: JSON.stringify({ name, dailyLimit })
+      })
+      await fetchKeys()
+      return result
+    } catch (err) {
+      error.value = err.message
+      throw err
+    }
+  }
+
+  const resetKeyUsage = async (id) => {
+    try {
+      const result = await request(`/potluck/keys/${encodeURIComponent(id)}/reset`, { method: 'POST' })
+      await fetchKeys()
+      return result
+    } catch (err) {
+      error.value = err.message
+      throw err
+    }
+  }
+
+  const resetKeyTokens = async (id) => {
+    try {
+      const result = await request(`/potluck/keys/${encodeURIComponent(id)}/reset-tokens`, { method: 'POST' })
+      await fetchKeys()
+      return result
+    } catch (err) {
+      error.value = err.message
+      throw err
+    }
+  }
+
+  const resetAllTokens = async () => {
+    try {
+      const result = await request('/potluck/stats/reset-tokens', { method: 'POST' })
+      await fetchKeys()
+      return result
+    } catch (err) {
+      error.value = err.message
+      throw err
+    }
+  }
+
+  const updateKeyLimit = async (id, dailyLimit) => {
+    try {
+      const result = await request(`/potluck/keys/${encodeURIComponent(id)}/limit`, {
+        method: 'PUT',
+        body: JSON.stringify({ dailyLimit })
+      })
+      await fetchKeys()
+      return result
+    } catch (err) {
+      error.value = err.message
+      throw err
+    }
+  }
+
+  const updateKeyName = async (id, name) => {
+    try {
+      const result = await request(`/potluck/keys/${encodeURIComponent(id)}/name`, {
+        method: 'PUT',
+        body: JSON.stringify({ name })
+      })
+      await fetchKeys()
+      return result
+    } catch (err) {
+      error.value = err.message
+      throw err
+    }
+  }
+
+  const toggleKey = async (id) => {
+    try {
+      const result = await request(`/potluck/keys/${encodeURIComponent(id)}/toggle`, { method: 'POST' })
+      await fetchKeys()
+      return result
+    } catch (err) {
+      error.value = err.message
+      throw err
+    }
+  }
+
+  const deleteKey = async (id) => {
+    try {
+      const result = await request(`/potluck/keys/${encodeURIComponent(id)}`, { method: 'DELETE' })
+      await fetchKeys()
+      return result
+    } catch (err) {
+      error.value = err.message
+      throw err
+    }
+  }
+
+  const applyLimitToAll = async (dailyLimit) => {
+    try {
+      const result = await request('/potluck/keys/apply-limit', {
+        method: 'POST',
+        body: JSON.stringify({ dailyLimit })
+      })
+      await fetchKeys()
+      return result
+    } catch (err) {
+      error.value = err.message
+      throw err
+    }
+  }
+
+  return {
+    keys,
+    stats,
+    loading,
+    error,
+    fetchKeys,
+    createKey,
+    resetKeyUsage,
+    resetKeyTokens,
+    resetAllTokens,
+    updateKeyLimit,
+    updateKeyName,
+    toggleKey,
+    deleteKey,
+    applyLimitToAll
+  }
+}
+
+export function usePotluckUser() {
+  const userData = ref(null)
+  const loading = ref(false)
+  const error = ref(null)
+
+  const fetchUserUsage = async (apiKey) => {
+    loading.value = true
+    error.value = null
+    try {
+      const response = await fetch(`${API_BASE}/potluckuser/usage`, {
+        method: 'GET',
+        headers: { 'Authorization': `Bearer ${apiKey}` }
+      })
+      const data = await response.json()
+      if (!response.ok || !data.success) {
+        throw new Error(data.error?.message || '获取用量失败')
+      }
+      userData.value = data.data
+      return data.data
+    } catch (err) {
+      error.value = err.message
+      console.error('Failed to fetch potluck user usage:', err)
+      return null
+    } finally {
+      loading.value = false
+    }
+  }
+
+  return {
+    userData,
+    loading,
+    error,
+    fetchUserUsage
+  }
+}
+
 function formatUptime(seconds) {
   const days = Math.floor(seconds / 86400)
   const hours = Math.floor((seconds % 86400) / 3600)
