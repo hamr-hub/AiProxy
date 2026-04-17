@@ -68,18 +68,24 @@ const handleLogin = async () => {
     error.value = '请输入密码'
     return
   }
-  
+
   isLoading.value = true
   error.value = ''
-  
+
   try {
-    await new Promise(resolve => setTimeout(resolve, 500))
-    
-    if (password.value === 'admin123') {
-      localStorage.setItem('authToken', 'mock-token')
+    const response = await fetch('/api/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password: password.value })
+    })
+
+    const data = await response.json()
+
+    if (response.ok && data.token) {
+      localStorage.setItem('authToken', data.token)
       window.location.href = '/'
     } else {
-      error.value = '密码错误，请重试'
+      error.value = data.error?.message || '密码错误，请重试'
     }
   } catch (err) {
     error.value = '登录失败，请稍后重试'

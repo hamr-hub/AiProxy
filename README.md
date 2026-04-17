@@ -11,15 +11,15 @@
 
 <div align="center">
 
-<a href="https://deepwiki.com/justlikemaki/AiProxy"><img src="https://deepwiki.com/badge.svg" alt="Ask DeepWiki"  style="width: 134px; height: 23px;margin-bottom: 3px;"></a>
+<a href="https://deepwiki.com/hamr-hub/AiProxy"><img src="https://deepwiki.com/badge.svg" alt="Ask DeepWiki"  style="width: 134px; height: 23px;margin-bottom: 3px;"></a>
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Node.js](https://img.shields.io/badge/Node.js-≥20.0.0-green.svg)](https://nodejs.org/)
-[![Docker](https://img.shields.io/badge/docker-≥20.0.0-blue.svg)](https://hub.docker.com/r/justlikemaki/aiclient-2-api)
+[![Docker](https://img.shields.io/badge/docker-≥20.0.0-blue.svg)](https://hub.docker.com/r/hamr-hub/aiclient-2-api)
 [![GitHub stars](https://img.shields.io/github/stars/justlovemaki/AiProxy.svg?style=flat&label=Star)](https://github.com/justlovemaki/AiProxy/stargazers)
 [![GitHub issues](https://img.shields.io/github/issues/justlovemaki/AiProxy.svg)](https://github.com/justlovemaki/AiProxy/issues)
 
-[**🔧 OpenClaw Configuration**](./docs/OPENCLAW_CONFIG_GUIDE.md) | [**👈 中文**](./README-ZH.md) | [English](./README.md) | [日本語](./README-JA.md) | [**📚 Full Documentation**](https://aiproxy.justlikemaki.vip/zh/)
+[**🔧 OpenClaw Configuration**](./docs/OPENCLAW_CONFIG_GUIDE.md) | [**👈 中文**](./README-ZH.md) | [English](./README.md) | [日本語](./README-JA.md) | [**📚 Full Documentation**](https://aiproxy.hamr-hub.vip/zh/)
 
 </div>
 
@@ -100,7 +100,7 @@
 > - **2026.01.03** - Added theme switching and optimized provider pool initialization, removed fallback to provider default config strategy
 > - **2025.12.30** - Added master process management and auto-update
 > - **2025.12.25** - Unified config management: all configs moved to `configs/` directory. Docker users must update mount path to `-v "local-path:/app/configs"`
-> - **2025.12.11** - Docker image auto-build and publish to Docker Hub: [justlikemaki/aiclient-2-api](https://hub.docker.com/r/justlikemaki/aiclient-2-api)
+> - **2025.12.11** - Docker image auto-build and publish to Docker Hub: [hamr-hub/aiclient-2-api](https://hub.docker.com/r/hamr-hub/aiclient-2-api)
 > - **2025.11.30** - Added Antigravity protocol support for Google internal Gemini 3 Pro, Claude Sonnet 4.5 access
 > - **2025.11.11** - Added Web UI management console with real-time config management and health monitoring
 > - **2025.11.06** - Added Gemini 3 preview support, enhanced model compatibility
@@ -182,7 +182,7 @@ docker run -d \
   --restart=always \
   -v "your-path:/app/configs" \
   --name aiproxy \
-  justlikemaki/aiclient-2-api
+  hamr-hub/aiclient-2-api
 ```
 
 **Parameters**:
@@ -202,7 +202,7 @@ docker compose up -d
 ```
 
 To build from source instead of using pre-built image:
-1. Comment out `image: justlikemaki/aiclient-2-api:latest`
+1. Comment out `image: hamr-hub/aiclient-2-api:latest`
 2. Uncomment the `build:` section
 3. Run `docker compose up -d --build`
 
@@ -724,7 +724,7 @@ Or change port in `configs/config.json`.
 - **Check logs**: `docker logs aiproxy`
 - **Check mount path**: Ensure `-v` local path exists with read/write permissions
 - **Check port conflicts**: All mapped ports available
-- **Re-pull image**: `docker pull justlikemaki/aiclient-2-api:latest`
+- **Re-pull image**: `docker pull hamr-hub/aiclient-2-api:latest`
 
 ### 4. Credential File Not Recognized
 

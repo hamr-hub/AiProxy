@@ -11,15 +11,15 @@
 
 <div align="center">
 
-<a href="https://deepwiki.com/justlikemaki/AiProxy"><img src="https://deepwiki.com/badge.svg" alt="Ask DeepWiki"  style="width: 134px; height: 23px;margin-bottom: 3px;"></a>
+<a href="https://deepwiki.com/hamr-hub/AiProxy"><img src="https://deepwiki.com/badge.svg" alt="Ask DeepWiki"  style="width: 134px; height: 23px;margin-bottom: 3px;"></a>
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Node.js](https://img.shields.io/badge/Node.js-≥20.0.0-green.svg)](https://nodejs.org/)
-[![Docker](https://img.shields.io/badge/docker-≥20.0.0-blue.svg)](https://hub.docker.com/r/justlikemaki/aiclient-2-api)
+[![Docker](https://img.shields.io/badge/docker-≥20.0.0-blue.svg)](https://hub.docker.com/r/hamr-hub/aiclient-2-api)
 [![GitHub stars](https://img.shields.io/github/stars/justlovemaki/AiProxy.svg?style=flat&label=Star)](https://github.com/justlovemaki/AiProxy/stargazers)
 [![GitHub issues](https://img.shields.io/github/issues/justlovemaki/AiProxy.svg)](https://github.com/justlovemaki/AiProxy/issues)
 
-[**🔧 OpenClaw 配置**](./docs/OPENCLAW_CONFIG_GUIDE-ZH.md) | [**👉 中文**](./README-ZH.md) | [English](./README.md) | [日本語](./README-JA.md) | [**📚 完整文档**](https://aiproxy.justlikemaki.vip/zh/)
+[**🔧 OpenClaw 配置**](./docs/OPENCLAW_CONFIG_GUIDE-ZH.md) | [**👉 中文**](./README-ZH.md) | [English](./README.md) | [日本語](./README-JA.md) | [**📚 完整文档**](https://aiproxy.hamr-hub.vip/zh/)
 
 </div>
 
@@ -100,7 +100,7 @@
 > > - **2026.01.03** - 新增主题切换功能并优化提供商池初始化，移除使用提供商默认配置的降级策略
 > - **2025.12.30** - 添加主进程管理和自动更新功能
 > - **2025.12.25** - 配置文件统一管理：所有配置集中到 `configs/` 目录，Docker 用户需更新挂载路径为 `-v "本地路径:/app/configs"`
-> - **2025.12.11** - Docker 镜像自动构建并发布到 Docker Hub: [justlikemaki/aiclient-2-api](https://hub.docker.com/r/justlikemaki/aiclient-2-api)
+> - **2025.12.11** - Docker 镜像自动构建并发布到 Docker Hub: [hamr-hub/aiclient-2-api](https://hub.docker.com/r/hamr-hub/aiclient-2-api)
 > - **2025.11.30** - 新增 Antigravity 协议支持，支持通过 Google 内部接口访问 Gemini 3 Pro、Claude Sonnet 4.5 等模型
 > - **2025.11.11** - 新增 Web UI 管理控制台，支持实时配置管理和健康状态监控
 > - **2025.11.06** - 新增对 Gemini 3 预览版的支持，增强模型兼容性和性能优化
@@ -182,7 +182,7 @@ docker run -d \
   --restart=always \
   -v "指定路径:/app/configs" \
   --name aiproxy \
-  justlikemaki/aiclient-2-api
+  hamr-hub/aiclient-2-api
 ```
 
 **参数说明**：
@@ -204,7 +204,7 @@ docker compose up -d
 ```
 
 如需从源码构建而非使用预构建镜像，请编辑 `docker-compose.yml`：
-1. 注释掉 `image: justlikemaki/aiclient-2-api:latest` 行
+1. 注释掉 `image: hamr-hub/aiclient-2-api:latest` 行
 2. 取消 `build:` 部分的注释
 3. 运行 `docker compose up -d --build`
 
@@ -213,7 +213,7 @@ docker compose up -d
 ```yaml
 services:
   aiclient-api:
-    image: justlikemaki/aiclient-2-api:latest
+    image: hamr-hub/aiclient-2-api:latest
     container_name: aiproxy
     restart: unless-stopped
     ports:
@@ -757,7 +757,7 @@ kill -9 <PID>
 - **检查日志**：`docker logs aiproxy` 查看错误信息
 - **检查挂载路径**：确保 `-v` 参数中的本地路径存在且有读写权限
 - **检查端口冲突**：确保所有映射的端口在宿主机上未被占用
-- **重新拉取镜像**：`docker pull justlikemaki/aiclient-2-api:latest`
+- **重新拉取镜像**：`docker pull hamr-hub/aiclient-2-api:latest`
 
 ### 4. 凭据文件无法识别
 

@@ -1,5 +1,6 @@
 import { existsSync, readFileSync } from 'fs';
 import path from 'path';
+import { getPluginManager } from '../core/plugin-manager.js';
 
 // Import UI modules
 import * as auth from '../ui-modules/auth.js';
@@ -23,8 +24,18 @@ export { broadcastEvent, initializeUIManagement, handleUploadOAuthCredentials, u
  * @param {string} pathParam - The request path
  * @param {http.ServerResponse} res - The HTTP response object
  */
-export async function serveStaticFiles(pathParam, res) {
-    const filePath = path.join(process.cwd(), 'static', pathParam === '/' || pathParam === '/index.html' ? 'index.html' : pathParam.replace('/static/', ''));
+export async function serveStaticFiles(pathParam, res, pluginOwner = null) {
+    let filePath;
+    if (pathParam === '/' || pathParam === '/index.html') {
+        filePath = path.join(process.cwd(), 'dist', 'index.html');
+    } else if (pathParam.startsWith('/static/')) {
+        filePath = path.join(process.cwd(), 'dist', pathParam.replace('/static/', ''));
+    } else if (pluginOwner) {
+        const pluginStaticDir = path.join(process.cwd(), 'src', 'plugins', pluginOwner.name);
+        filePath = path.join(pluginStaticDir, pathParam.startsWith('/') ? pathParam.slice(1) : pathParam);
+    } else {
+        filePath = path.join(process.cwd(), 'dist', pathParam);
+    }
 
     if (existsSync(filePath)) {
         const ext = path.extname(filePath);
@@ -34,7 +45,11 @@ export async function serveStaticFiles(pathParam, res) {
             '.js': 'application/javascript',
             '.png': 'image/png',
             '.jpg': 'image/jpeg',
-            '.ico': 'image/x-icon'
+            '.ico': 'image/x-icon',
+            '.svg': 'image/svg+xml',
+            '.woff': 'font/woff',
+            '.woff2': 'font/woff2',
+            '.json': 'application/json'
         }[ext] || 'text/plain';
 
         res.writeHead(200, { 'Content-Type': contentType });

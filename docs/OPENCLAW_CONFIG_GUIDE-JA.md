@@ -10,7 +10,7 @@ OpenClaw で AiProxy を使用するためのクイック設定ガイド。
 2. Web UI (`http://localhost:3000`) で少なくとも1つのプロバイダーを設定
 3. 設定ファイルから API Key を記録
 4. OpenClaw をインストール
-   - Docker バージョン：[justlikemaki/openclaw-docker-cn-im](https://hub.docker.com/r/justlikemaki/openclaw-docker-cn-im)
+   - Docker バージョン：[hamr-hub/openclaw-docker-cn-im](https://hub.docker.com/r/hamr-hub/openclaw-docker-cn-im)
    - または他のインストール方法を使用
 
 ---

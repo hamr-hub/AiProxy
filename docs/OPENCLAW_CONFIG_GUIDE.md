@@ -10,7 +10,7 @@ Quick configuration guide for using AiProxy with OpenClaw.
 2. Configure at least one provider in Web UI (`http://localhost:3000`)
 3. Note the API Key from configuration file
 4. Install OpenClaw
-   - Docker version: [justlikemaki/openclaw-docker-cn-im](https://hub.docker.com/r/justlikemaki/openclaw-docker-cn-im)
+   - Docker version: [hamr-hub/openclaw-docker-cn-im](https://hub.docker.com/r/hamr-hub/openclaw-docker-cn-im)
    - Or use other installation methods
 
 ---

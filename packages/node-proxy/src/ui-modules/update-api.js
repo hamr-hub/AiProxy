@@ -496,8 +496,8 @@ async function performTarballUpdate(localVersion, latestTag) {
             ? readFileSync(path.join(appDir, 'package.json'), 'utf-8')
             : null;
         
-        // 5.5 在解压前删除 src/ 和 static/ 目录，确保旧代码被完全清除
-        const dirsToClean = ['src', 'static'];
+        // 5.5 在解压前删除 src/ 目录，确保旧代码被完全清除
+        const dirsToClean = ['src'];
         for (const dirName of dirsToClean) {
             const dirPath = path.join(appDir, dirName);
             if (existsSync(dirPath)) {

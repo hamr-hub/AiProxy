@@ -1,4 +1,5 @@
 node_modules
+packages/*/node_modules
 npm-debug.log
 .git
 .gitignore
@@ -6,8 +7,6 @@ Dockerfile
 .dockerignore
 .nyc_output
 coverage
-.nyc_output
-.coverage
 .env
 .env.local
 .env.*.local
@@ -19,3 +18,10 @@ babel.config.js
 tests/
 run-tests.js
 test-summary.js
+packages/python-controller/
+packages/go-sidecar/
+docker/
+docs/
+.github/
+*.bat
+*.ps1

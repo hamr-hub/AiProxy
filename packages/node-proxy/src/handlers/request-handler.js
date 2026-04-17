@@ -1,3 +1,5 @@
+import { existsSync, readFileSync } from 'fs';
+import path from 'path';
 import deepmerge from 'deepmerge';
 import logger from '../utils/logger.js';
 import { handleError, getClientIp } from '../utils/common.js';
@@ -95,9 +97,19 @@ export function createRequestHandler(config, providerPoolManager) {
                     }));
                     return;
                 }
-                if (path.startsWith('/static/') || path === '/' || path === '/favicon.ico' || path === '/index.html' || path.startsWith('/app/') || path.startsWith('/components/') || path === '/login.html' || isPluginStatic) {
-                    const served = await serveStaticFiles(path, res);
+                if (isPluginStatic) {
+                    const served = await serveStaticFiles(path, res, pluginStaticOwner);
                     if (served) return;
+                }
+
+                // SPA fallback: all unmatched GET requests return index.html
+                if (method === 'GET' && !path.startsWith('/api/') && !path.startsWith('/v1beta/') && !path.startsWith('/v1/') && path !== '/health' && path !== '/provider_health' && !path.startsWith('/manage/')) {
+                    const indexPath = path.join(process.cwd(), 'dist', 'index.html');
+                    if (existsSync(indexPath)) {
+                        res.writeHead(200, { 'Content-Type': 'text/html' });
+                        res.end(readFileSync(indexPath));
+                        return;
+                    }
                 }
 
                 // 执行插件路由

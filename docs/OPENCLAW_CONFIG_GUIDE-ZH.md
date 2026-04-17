@@ -10,7 +10,7 @@
 2. 在 Web UI (`http://localhost:3000`) 配置至少一个提供商
 3. 记录配置文件中的 API Key
 4. 安装 OpenClaw
-   - Docker 版本：[justlikemaki/openclaw-docker-cn-im](https://hub.docker.com/r/justlikemaki/openclaw-docker-cn-im)
+   - Docker 版本：[hamr-hub/openclaw-docker-cn-im](https://hub.docker.com/r/hamr-hub/openclaw-docker-cn-im)
    - 或使用其他安装方式
 
 ---

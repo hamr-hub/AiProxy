@@ -11,10 +11,32 @@
 import { describe, test, expect } from '@jest/globals';
 import { fetch } from 'undici';
 
-const TEST_SERVER_BASE_URL = process.env.TEST_SERVER_BASE_URL || 'http://localhost:3000';
+const TEST_SERVER_BASE_URL = process.env.TEST_SERVER_BASE_URL || 'http://localhost:9001';
 const TEST_API_KEY = process.env.TEST_API_KEY || '123456';
 
+let serverAvailable = false;
+
+const checkServer = async () => {
+    try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 3000);
+        const response = await fetch(`${TEST_SERVER_BASE_URL}/health`, {
+            signal: controller.signal
+        });
+        clearTimeout(timeoutId);
+        return response.ok;
+    } catch {
+        return false;
+    }
+};
+
 describe('Security Fixes Integration Tests', () => {
+    beforeAll(async () => {
+        serverAvailable = await checkServer();
+        if (!serverAvailable) {
+            console.warn('⚠ Server not available - integration tests skipped');
+        }
+    }, 10000);
 
     describe('XSS Protection', () => {
         test('should remove script tags from customName', async () => {
