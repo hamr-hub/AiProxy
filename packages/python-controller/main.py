@@ -619,4 +619,4 @@ async def get_websocket_connections():
 if __name__ == "__main__":
     import uvicorn
     logger.info("Starting AI Controller service")
-    uvicorn.run(app, host="0.0.0.0", port=5000)
+    uvicorn.run(app, host="0.0.0.0", port=9002)

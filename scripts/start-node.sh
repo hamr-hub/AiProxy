@@ -8,8 +8,12 @@ cd "$NODE_PROXY_DIR"
 
 if [ ! -d "node_modules" ]; then
     echo "Installing Node.js dependencies..."
-    npm install
+    if command -v pnpm > /dev/null 2>&1; then
+        pnpm install
+    else
+        npm install
+    fi
 fi
 
-echo "Starting Node.js API Gateway..."
-node src/main.js
+echo "Starting Node.js API Gateway on port 9001..."
+node "$NODE_PROXY_DIR/src/core/master.js" --port 9001

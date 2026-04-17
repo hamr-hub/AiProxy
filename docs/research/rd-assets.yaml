@@ -5,7 +5,7 @@ metadata:
   platform: "node"
 
 project:
-  name: "AIClient-2-API"
+  name: "AiProxy"
   type: "node"
   framework: "custom-http-server"
   language: "javascript"

@@ -24,5 +24,5 @@ if [ ! -f "venv/bin/activate" ]; then
     pip install -q fastapi uvicorn httpx pydantic pynvml prometheus-client websockets redis
 fi
 
-echo "Starting Python Controller service..."
-uvicorn main:app --host 0.0.0.0 --port 5000
+echo "Starting Python Controller service on port 9002..."
+uvicorn main:app --host 0.0.0.0 --port 9002
