@@ -2,8 +2,12 @@
   <div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-emerald-50 to-teal-100">
     <div class="bg-white rounded-2xl shadow-xl p-8 w-full max-w-md mx-4">
       <div class="text-center mb-8">
-        <div class="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
-          <i class="fas fa-robot text-emerald-500 text-3xl"></i>
+        <div class="brand-badge mx-auto mb-4" aria-hidden="true">
+          <div class="brand-badge__core"></div>
+          <div class="brand-badge__dot brand-badge__dot--left"></div>
+          <div class="brand-badge__dot brand-badge__dot--right"></div>
+          <div class="brand-badge__node"></div>
+          <div class="brand-badge__orbit"></div>
         </div>
         <h1 class="text-2xl font-bold text-slate-800">AiProxy</h1>
         <p class="text-slate-500 mt-2">管理控制台</p>
@@ -94,3 +98,67 @@ const handleLogin = async () => {
   }
 }
 </script>
+
+<style scoped>
+.brand-badge {
+  position: relative;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 1.4rem;
+  background:
+    radial-gradient(circle at 32% 30%, rgba(94, 234, 212, 0.98), rgba(20, 184, 166, 0.92) 48%, rgba(15, 23, 42, 0.25) 49%),
+    linear-gradient(145deg, #0f172a, #134e4a);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    0 16px 32px rgba(16, 185, 129, 0.18);
+}
+
+.brand-badge__core {
+  position: absolute;
+  left: 1.2rem;
+  top: 1.7rem;
+  width: 1.7rem;
+  height: 0.8rem;
+  border-radius: 9999px;
+  background: rgba(15, 23, 42, 0.84);
+}
+
+.brand-badge__dot {
+  position: absolute;
+  top: 1.96rem;
+  width: 0.36rem;
+  height: 0.36rem;
+  border-radius: 9999px;
+}
+
+.brand-badge__dot--left {
+  left: 1.6rem;
+  background: #5eead4;
+}
+
+.brand-badge__dot--right {
+  left: 2.1rem;
+  background: #22d3ee;
+}
+
+.brand-badge__node {
+  position: absolute;
+  right: 0.45rem;
+  top: 0.65rem;
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #fbbf24, #fb7185);
+  box-shadow: 0 0 0 0.2rem rgba(251, 191, 36, 0.14);
+}
+
+.brand-badge__orbit {
+  position: absolute;
+  inset: 0.42rem;
+  border-radius: 9999px;
+  border: 0.24rem solid transparent;
+  border-left-color: #34d399;
+  border-bottom-color: #22d3ee;
+  transform: rotate(-22deg);
+}
+</style>

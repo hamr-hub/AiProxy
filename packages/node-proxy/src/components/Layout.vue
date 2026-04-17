@@ -10,11 +10,23 @@
       <div class="flex flex-col h-full">
         <div class="p-4 border-b border-slate-700 flex items-center justify-between">
           <div v-if="!isCollapsed" class="flex items-center gap-3">
-            <i class="fas fa-robot text-xl text-emerald-400"></i>
+            <div class="brand-mark" aria-hidden="true">
+              <div class="brand-mark__core"></div>
+              <div class="brand-mark__dot brand-mark__dot--left"></div>
+              <div class="brand-mark__dot brand-mark__dot--right"></div>
+              <div class="brand-mark__node"></div>
+              <div class="brand-mark__orbit"></div>
+            </div>
             <span class="font-bold text-lg">AiProxy</span>
           </div>
           <div v-else class="flex items-center justify-center w-full">
-            <i class="fas fa-robot text-xl text-emerald-400"></i>
+            <div class="brand-mark brand-mark--compact" aria-hidden="true">
+              <div class="brand-mark__core"></div>
+              <div class="brand-mark__dot brand-mark__dot--left"></div>
+              <div class="brand-mark__dot brand-mark__dot--right"></div>
+              <div class="brand-mark__node"></div>
+              <div class="brand-mark__orbit"></div>
+            </div>
           </div>
           <button 
             class="p-2 hover:bg-slate-700 rounded-lg transition-colors"
@@ -205,6 +217,74 @@ const handleLogout = () => {
 </script>
 
 <style scoped>
+.brand-mark {
+  position: relative;
+  width: 2.25rem;
+  height: 2.25rem;
+  flex-shrink: 0;
+  border-radius: 0.95rem;
+  background:
+    radial-gradient(circle at 32% 30%, rgba(94, 234, 212, 0.95), rgba(20, 184, 166, 0.88) 48%, rgba(15, 23, 42, 0.28) 49%),
+    linear-gradient(145deg, #0f172a, #134e4a);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    0 10px 24px rgba(15, 23, 42, 0.28);
+}
+
+.brand-mark__core {
+  position: absolute;
+  left: 0.7rem;
+  top: 0.95rem;
+  width: 0.95rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background: rgba(15, 23, 42, 0.85);
+}
+
+.brand-mark__dot {
+  position: absolute;
+  top: 1.08rem;
+  width: 0.22rem;
+  height: 0.22rem;
+  border-radius: 9999px;
+}
+
+.brand-mark__dot--left {
+  left: 0.95rem;
+  background: #5eead4;
+}
+
+.brand-mark__dot--right {
+  left: 1.3rem;
+  background: #22d3ee;
+}
+
+.brand-mark__node {
+  position: absolute;
+  right: 0.28rem;
+  top: 0.4rem;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #fbbf24, #fb7185);
+  box-shadow: 0 0 0 0.12rem rgba(251, 191, 36, 0.16);
+}
+
+.brand-mark__orbit {
+  position: absolute;
+  inset: 0.22rem;
+  border-radius: 9999px;
+  border: 0.15rem solid transparent;
+  border-left-color: #34d399;
+  border-bottom-color: #22d3ee;
+  transform: rotate(-22deg);
+}
+
+.brand-mark--compact {
+  width: 2rem;
+  height: 2rem;
+}
+
 .nav-item {
   position: relative;
 }
